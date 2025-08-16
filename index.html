@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ari Thaqi - Portfolio</title>
+  <style>
+    /* ===== CSS ===== */
+    :root {
+      --light-bg: #f4f4f9;
+      --light-text: #333;
+      --dark-bg: #1e1e1e;
+      --dark-text: #f4f4f9;
+      --accent: #f39c12;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin:0; padding:0;
+      background: var(--light-bg);
+      color: var(--light-text);
+      line-height:1.6;
+      transition: background 0.3s, color 0.3s;
+    }
+    body.dark {
+      background: var(--dark-bg);
+      color: var(--dark-text);
+    }
+    header {
+      text-align:center;
+      padding:2rem;
+      background:#222;
+      color:#fff;
+    }
+    nav {
+      text-align:center;
+      background:#444;
+      padding:1rem;
+    }
+    nav a {
+      color:#fff;
+      margin:0 15px;
+      text-decoration:none;
+      font-weight:bold;
+      transition:0.3s;
+    }
+    nav a:hover { color: var(--accent); }
+    section {
+      padding:2rem;
+      max-width:900px;
+      margin:auto;
+      opacity:0;
+      transform:translateY(50px);
+      transition:opacity 0.6s ease, transform 0.6s ease;
+    }
+    section.visible {
+      opacity:1;
+      transform:translateY(0);
+    }
+    h2 { margin-bottom:1rem; color:#222; text-align:center; }
+    .profile-pic {
+      width:180px;
+      border-radius:50%;
+      display:block;
+      margin:1rem auto;
+      border:3px solid var(--accent);
+    }
+    .info {
+      text-align:center;
+      margin-bottom:2rem;
+    }
+    .project {
+      background:#fff;
+      padding:1.5rem;
+      margin-bottom:1rem;
+      border-radius:8px;
+      box-shadow:0 2px 5px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .project:hover { transform: scale(1.03); }
+    footer {
+      text-align:center;
+      padding:1rem;
+      background:#222;
+      color:#fff;
+      margin-top:2rem;
+    }
+    button, #darkModeBtn {
+      padding:10px 20px;
+      border:none;
+      background: var(--accent);
+      color:white;
+      font-weight:bold;
+      cursor:pointer;
+      border-radius:5px;
+      margin:5px;
+      transition:0.3s;
+    }
+    button:hover, #darkModeBtn:hover { background:#e67e22; }
+    a.email-link { color: var(--accent); text-decoration:none; font-weight:bold; }
+    a.email-link:hover { text-decoration:underline; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Ari Thaqi</h1>
+    <p>Web Developer & Designer | Kosovo 🇽🇰</p>
+    <button id="darkModeBtn">Toggle Dark Mode</button>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <img src="https://i.postimg.cc/SssVkSh9/IMG-8674.png" alt="Ari Thaqi" class="profile-pic">
+    <div class="info">
+      <p>Email: <a class="email-link" href="mailto:arithaci850@gmail.com">arithaci850@gmail.com</a></p>
+      <p>I am in my second year of high school, from Kosovo.</p>
+      <p>Experience: Graphic design, Web development, Student Council President, Gastronomy work.</p>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>My Projects & Experience</h2>
+    <div class="project">
+      <h3>Graphic Designs</h3>
+      <p>Created modern and clean graphic designs for events, posters, and personal projects.</p>
+    </div>
+    <div class="project">
+      <h3>Web Development</h3>
+      <p>Developed responsive websites using HTML, CSS, and JavaScript for personal and school projects.</p>
+    </div>
+    <div class="project">
+      <h3>Leadership Experience</h3>
+      <p>Served as Student Council President, organized events and coordinated school activities.</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <p>Email: <a class="email-link" href="mailto:arithaci850@gmail.com">arithaci850@gmail.com</a></p>
+    <button id="contactBtn">Send Me a Message</button>
+  </section>
+
+  <footer>
+    <p>© 2025 Ari Thaqi - All Rights Reserved</p>
+  </footer>
+
+  <script>
+    // ===== JS =====
+    const darkBtn = document.getElementById("darkModeBtn");
+    darkBtn.addEventListener("click", () => document.body.classList.toggle("dark"));
+
+    document.getElementById("contactBtn").addEventListener("click", () => {
+      alert("Thanks for checking my portfolio! 🚀");
+    });
+
+    const sections = document.querySelectorAll("section");
+    window.addEventListener("scroll", () => {
+      const scrollY = window.scrollY + window.innerHeight;
+      sections.forEach(section => {
+        if(scrollY > section.offsetTop + 100){
+          section.classList.add("visible");
+        }
+      });
+    });
+  </script>
+</body>
+</html>
